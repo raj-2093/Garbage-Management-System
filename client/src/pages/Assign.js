@@ -5,7 +5,7 @@ export const Assign = () => {
   return (
     <>
     <Navbar/>
-    <div>Assign</div>
+    
     </>
   )
 }
