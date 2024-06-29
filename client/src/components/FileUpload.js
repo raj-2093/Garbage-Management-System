@@ -16,7 +16,7 @@ const FileUpload = () => {
   });
 
   const handleUpload = async () => {
-    alert("File Upload successfull");
+    // alert("File Upload successfull");
   };
 
   const [isOpen, setIsOpen] = useState(false);

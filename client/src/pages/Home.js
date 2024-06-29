@@ -58,7 +58,7 @@ export const Home = () => {
         </div>
 
         <div className="Container">
-          Upload Images:
+          Create a request
           <FileUpload />
         </div>
       </div>
