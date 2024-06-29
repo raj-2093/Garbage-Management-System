@@ -1,0 +1,17 @@
+{
+  "name": "garbagecollection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm run dev --prefix api_server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently --prefix-colors #ffe4c4,#F25278 -n server,client  \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
