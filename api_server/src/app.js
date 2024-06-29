@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import tempRouter from "./routes/temp.route.js";
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 // Routes
 
-app.use("/", tempRouter);
+app.use("/api/v1/user", userRouter);
 
 // Routes
 

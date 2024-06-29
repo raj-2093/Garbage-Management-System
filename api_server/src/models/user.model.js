@@ -1,35 +1,48 @@
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { userRole, userRoleList } from "../constants/generals.js";
 
 const userSchema = new mongoose.Schema(
   {
-    firstName: {
+    fullname: {
       type: String,
       required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
+      unique: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
     },
     username: {
       type: String,
       required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+      index: true,
     },
     phoneNumber: {
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    role: {
+      type: String,
+      enum: userRoleList,
+      default: userRole.RESIDENTS,
+    },
     password: {
       type: String,
       required: true,
-    },
-    avatar: {
-      type: String,
     },
     verified: {
       type: Boolean,
@@ -46,7 +59,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  if (!this.ismodified("password")) return next();
+  if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
